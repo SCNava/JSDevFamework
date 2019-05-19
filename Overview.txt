@@ -1,19 +1,43 @@
 Decisions:
 
+    NOTE: For hosting, use HostGator. You are capable of doing this. You can create anything that you want -- this is your life.
+
 1. Editor
 	Choices: VSCode, WebStorm, Atom, Brackets
 	Decision: VSCode
 	Justification: Built in terminal and lots of JS support. Lighter than a large scale IDE.
 
 2. .EditorConfig
-	Notes: create a file titled .EditorConfig and place it in the root of your project. This ensures that all users have same editor settings (tabs/spaces, etc.)
+	Notes: create a file titled .EditorConfig and place it in the root of your project.
+        This ensures that all users have same editor settings (tabs/spaces, etc.)
 
 3. Package Manager
+	Notes: to run multiple versions of node, use NVM
 	Choices: Bower, NPM, JSPM (JavaScript Package Manager), Jam, Volo
 	Decision: NPM
 	Justification: Bower is irrelevant and Node has grown a ton in popularity
 
-4. Bundler
-	Choices:
-	Decisions:
-	Justification:
+4. Development Webserver
+	Choices: Http-server, Express (highly configurable and comprehensive -- serves APIs), Live-server (has live reloading), Budo (browserify),
+        Webpack, Browsersync (Dedicated IP, cross-device testing)
+	Decisions: Express
+	Justification: This will set it up so that we can test APIs that are written in Node and as a benefit we can use
+        Express for production as well.
+
+5. Sharing Work-In-Progress
+    Choices: Localtunnel (easily share work creating a hole in your firewall for your port),
+        Ngrok (similar to localtunnel, needs extra setup, extra security),
+        Surge (only suppots static files and moves them to a public webserver),
+        Now (deploys the application [Node.js] to the cloud instead of making your machine a webserver)
+    Decisions: Ngrok
+    Justification: Even though there is some additional setup, it is still fairly simple and provides added security.
+
+6. Automation Tooling
+    Choices: Grunt (the original, configuration over code, writes files to disk between steps, large ecosystem),
+        Gulp (doesn't write to disk -- pipes output from one step to the next step, uses Gulp file that is code over configuration, large plugin ecosystem),
+        NPM Scripts (declared in package.json, leverage OS command line, can directly use npm packages, can call separate Node scripts,
+            offer pre/post hooks, leverage largest package manager)
+    Decisions: NPM Scripts
+    Justification: This choice simplifies things a bit, getting rid of one abstraction layer (separate Gulp/Grunt plugins), instead allowing us to use
+        NPM packages directly. There is no dependency on separate plugins and gives one less point of failure with better documentation. NPM scripts are
+        also easy to learn.

@@ -4,7 +4,8 @@
   "description": "JavaScript development environment",
   "scripts": {
       "prestart" : "node buildScripts/startMessage.js",
-      "start": "node buildScripts/srcServer.js"
+      "start": "node buildScripts/srcServer.js",
+      "share": "./ngrok http -auth='scnava':'Nova2006' 9001"
   },
   "author": "Steven Nava",
   "license": "MIT",

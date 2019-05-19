@@ -1,0 +1,11 @@
+Decisions:
+
+1. Editor
+	Choices: VSCode, WebStorm, Atom, Brackets
+	Decision: VSCode 
+	Justification: Built in terminal and lots of JS support. Lighter than a large scale IDE.
+
+2. .EditorConfig 
+	Notes: create a file titled .EditorConfig and place it in the root of your project. This ensures that all users have same editor settings (tabs/spaces, etc.)
+
+3. 

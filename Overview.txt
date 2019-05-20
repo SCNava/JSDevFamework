@@ -41,3 +41,28 @@ Decisions:
     Justification: This choice simplifies things a bit, getting rid of one abstraction layer (separate Gulp/Grunt plugins), instead allowing us to use
         NPM packages directly. There is no dependency on separate plugins and gives one less point of failure with better documentation. NPM scripts are
         also easy to learn.
+
+7. Transpiler
+    Choices: TypeScript or Babel
+    Decision: Babel
+    Justification: This is just because new features may take time to support TypeScript. Babel leverages the full JS ecosystem and allows you to use
+        experimental features earlier. There are no type definitions and/or annotations required. Transpile build scripts as well if you want standardized
+        coding features across your build scripts and code.
+
+8. Module Format
+    Choices: ES6 Modules, IIFE, AMD, CommonJS
+    Decision: ES6 Modules
+    Justification: Improved autocompletion, tree shaking (eliminating unused code), intelligent refactoring, easier to read than the other options,
+        and you can have named imports/default exports.
+
+9. Bundler
+    Notes: These take all JS files and package them (intelligently) for an app or browser.
+    Choices: Require.JS (older), Broswerify (first to reach mass adoption), Webpack (bundles much more than just JS -- can import css, images, etc.),
+        Rollup (Tree shaking (eliminates code not used), faster loading production code, new, good for library authors),
+        JSPM (uses SystemJS -- a universal module loader)
+    Justification: Comprehensive and supports bundle splitting so that users don't have to download all of JS -- just what they need
+
+Sourcemaps:
+    Notes: Sourcemaps map the transpiled code back to the original code, allowing you to debug it properly. They are only downloaded when the developer
+        tools are opened so users of the site/app will not download them each time they load the page but we will have them when we need them for debugging
+        purposes.
